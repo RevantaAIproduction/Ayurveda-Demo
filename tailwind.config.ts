@@ -6,11 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#6D4AFF",
-          secondary: "#A78BFA",
-          accent: "#E9C46A",
-          ink: "#111827",
-          paper: "#FFFFFF",
+          primary: "#7B2CBF", // Purple
+          deep: "#5A189A", // Deep purple
+          gold: "#D4A017", // Gold
+          ink: "#1B1F3B", // Dark navy
+          paper: "#FFFFFF", // White
+          lavender: "#F8F5FF", // Light lavender
+          accent: "#D4A017", // keep accent mapped to gold
+          secondary: "#7B2CBF", // backward compat
         },
       },
       boxShadow: {

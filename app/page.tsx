@@ -1,5 +1,6 @@
-import { AyurAuraApp } from "@/components/site";
+import Site from "@/components/site";
 
 export default function Page() {
-  return <AyurAuraApp />;
+  return <Site />;
 }
+

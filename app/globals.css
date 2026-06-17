@@ -18,13 +18,13 @@ body {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(109, 74, 255, 0.08), transparent 32%),
-    radial-gradient(circle at 85% 12%, rgba(233, 196, 106, 0.12), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #fbf9ff 100%);
+    radial-gradient(circle at top left, rgba(123, 44, 191, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 12%, rgba(212, 160, 23, 0.14), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f8f5ff 100%);
 }
 
 ::selection {
-  background: rgba(109, 74, 255, 0.16);
+  background: rgba(123, 44, 191, 0.18);
 }
 
 .glass {

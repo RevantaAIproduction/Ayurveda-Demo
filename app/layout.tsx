@@ -16,8 +16,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "AyurAura",
-  description: "Ancient Wisdom. Modern Wellness.",
+  title: "AyurAura | Ancient Wisdom. Modern Wellness.",
+  description:
+    "Premium Ayurvedic healthcare with personalized plans for women’s wellness, detox, mother & baby care, child immunity, and longevity.",
 };
 
 export default function RootLayout({
@@ -27,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${display.variable} ${body.variable} bg-brand-paper text-brand-ink antialiased`}>
+      <body
+        className={`${display.variable} ${body.variable} bg-brand-paper text-brand-ink antialiased`}
+      >
         {children}
       </body>
     </html>
