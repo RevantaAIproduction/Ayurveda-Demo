@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 
 type Props = {
   reducedMotion: boolean | null;
+  className?: string;
 };
 
-export default function AyurvedicStoryVisual({ reducedMotion }: Props) {
+export default function AyurvedicStoryVisual({ reducedMotion, className }: Props) {
   const labels = [
     { text: "HEALING", pos: "top-[6%] left-1/2 -translate-x-1/2" },
     { text: "BALANCE", pos: "left-[10%] top-[24%]" },
@@ -18,7 +19,7 @@ export default function AyurvedicStoryVisual({ reducedMotion }: Props) {
 
 
   return (
-    <section className="relative py-10">
+    <section className={`relative py-10 ${className ?? ""}`}>
       <div className="mx-auto max-w-[500px] px-6">
         <motion.div
           className="relative mx-auto overflow-visible"
