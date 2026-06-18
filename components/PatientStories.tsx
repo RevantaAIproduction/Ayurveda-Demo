@@ -299,17 +299,16 @@ export default function PatientStories() {
                                           : undefined
                                       }
                                       viewport={ready ? { once: true, margin: "-120px" } : undefined}
-                                      transition={{ duration: 0.65, delay: revealDelay }}
                                       whileHover={
                                         reducedMotion
                                           ? undefined
                                           : {
                                               y: -6,
                                               rotate: n.rotation * 0.55,
-                                              transition: { duration: 0.18, ease: "easeOut" },
                                             }
                                       }
                                       className="absolute"
+
                                       style={{
                                         left: n.baseX * 0.5 + copy * 430,
                                         top: n.baseY * 0.45,
@@ -325,15 +324,19 @@ export default function PatientStories() {
                                               rotate: [n.rotation - driftRot, n.rotation + driftRot, n.rotation - driftRot],
                                             }
                                       }
+                                      // NOTE: merged with the reveal transition above to avoid duplicate transition props.
                                       transition={
                                         reducedMotion
                                           ? undefined
                                           : {
+                                              // keep the reveal delay behavior while avoiding duplicate props
+                                              delay: revealDelay,
                                               duration: 12 + (n.z % 17),
                                               repeat: Infinity,
                                               ease: "easeInOut",
                                             }
                                       }
+
                                     >
                                       <div
                                         className={
