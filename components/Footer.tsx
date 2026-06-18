@@ -2,24 +2,11 @@
 
 import { useMemo } from "react";
 
-const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About Ayurveda", href: "#about" },
-  { label: "Specializations", href: "#specializations" },
-  { label: "Treatment Journey", href: "#journey" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
-] as const;
-
-const services = ["Panchakarma", "Hormonal Wellness", "Child Immunity", "Rasayana", "Stress & Sleep"];
-
 export default function Footer() {
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer className="py-16">
+    <footer className="py-16" aria-label="AyurAura Footer">
       <div className="max-w-7xl mx-auto px-6">
         <div className="rounded-[28px] glass border border-black/5 p-6 md:p-10 shadow-[0_20px_70px_rgba(27,31,59,0.08)]">
           <div className="grid md:grid-cols-12 gap-8">
@@ -30,75 +17,77 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-2xl font-semibold text-brand.ink">AyurAura</div>
-                  <div className="text-sm text-brand.ink/65">Ancient Wisdom. Modern Wellness.</div>
+                  <div className="text-sm text-brand.ink/65">Ancient Wisdom. Modern healing.</div>
                 </div>
               </div>
 
               <p className="mt-4 text-brand.ink/70 leading-relaxed">
-                Premium Ayurvedic healthcare crafted with cinematic calm—root cause understanding, certified guidance,
-                and personalized recovery.
+                Specialized Ayurvedic care for women, pregnancy, children, and long-term wellness.
               </p>
             </div>
 
             <div className="md:col-span-3">
-              <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Quick Links</div>
+              <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Treatments</div>
               <div className="mt-4 grid grid-cols-1 gap-2">
-                {quickLinks.map((l) => (
-                  <a key={l.href} href={l.href} className="text-sm text-brand.ink/70 hover:text-brand.primary transition-colors">
-                    {l.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="md:col-span-2">
-              <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Services</div>
-              <div className="mt-4 grid grid-cols-1 gap-2">
-                {services.map((s) => (
-                  <a key={s} href="#specializations" className="text-sm text-brand.ink/70 hover:text-brand.primary transition-colors">
-                    {s}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="md:col-span-2">
-              <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Newsletter</div>
-              <div className="mt-4 space-y-3">
-                <p className="text-sm text-brand.ink/65">Monthly premium Ayurvedic insights.</p>
-                <form
-                  onSubmit={(e) => e.preventDefault()}
-                  className="flex gap-2"
-                >
-                  <input
-                    className="flex-1 h-11 rounded-2xl border border-black/10 bg-white/60 px-4 focus:outline-none focus:ring-2 focus:ring-brand.primary/30"
-                    placeholder="Email"
-                    aria-label="Newsletter email"
-                    type="email"
-                  />
-                  <button
-                    type="submit"
-                    className="h-11 w-11 rounded-2xl bg-brand.primary text-white font-semibold hover:shadow-[0_0_55px_rgba(109,74,255,0.35)] transition-shadow"
-                    aria-label="Subscribe"
+                {[
+                  "Stri Roga",
+                  "Garbhini Paricharya",
+                  "Kaumarabhritya",
+                  "Panchakarma",
+                ].map((t) => (
+                  <a
+                    key={t}
+                    href="#specializations"
+                    className="text-sm text-brand.ink/70 hover:text-brand.primary transition-colors"
                   >
-                    →
-                  </button>
-                </form>
-                <div className="flex items-center gap-2 pt-2">
-                  {[
-                    { t: "Instagram", s: "IG" },
-                    { t: "Facebook", s: "FB" },
-                    { t: "YouTube", s: "YT" },
-                  ].map((x) => (
+                    {t}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="md:col-span-4">
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div>
+                  <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Quick Links</div>
+                  <div className="mt-4 grid grid-cols-1 gap-2">
+                    {[
+                      { label: "Home", href: "#home" },
+                      { label: "Specializations", href: "#specializations" },
+                      { label: "FAQ", href: "#faq" },
+                      { label: "About AyurAura", href: "#about" },
+                    ].map((l) => (
+                      <a
+                        key={l.href + l.label}
+                        href={l.href}
+                        className="text-sm text-brand.ink/70 hover:text-brand.primary transition-colors"
+                      >
+                        {l.label}
+                      </a>
+                    ))}
                     <a
-                      key={x.t}
-                      href="#"
-                      aria-label={x.t}
-                      className="h-10 w-10 rounded-2xl glass border border-black/5 grid place-items-center text-brand.deep text-sm hover:bg-white/60 transition-colors"
+                      href="#specializations"
+                      className="text-sm text-brand.ink/70 hover:text-brand.primary transition-colors"
                     >
-                      {x.s}
+                      Treatments
                     </a>
-                  ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Contact</div>
+                  <div className="mt-4 space-y-2">
+                    <div className="text-sm text-brand.ink/70">Phone: +91 00000 00000</div>
+                    <div className="text-sm text-brand.ink/70">Email: hello@ayuraura.com</div>
+                    <div className="text-sm text-brand.ink/70">Location: India</div>
+
+                    <a
+                      href="#contact"
+                      className="mt-4 inline-flex items-center justify-center h-12 px-6 rounded-full text-sm font-semibold text-white bg-brand.primary shadow-[0_0_55px_rgba(109,74,255,0.28)] hover:shadow-[0_0_70px_rgba(109,74,255,0.38)] transition-shadow"
+                    >
+                      Book Consultation
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

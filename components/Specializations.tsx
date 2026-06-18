@@ -61,30 +61,25 @@ const pillPositions = [
 ] as const;
 
 export default function Specializations() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const reducedMotion = useReducedMotion();
-  const activeSlide = slides[activeIndex];
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--specialization-bg", activeSlide.bg);
-    return () => {
-      root.style.removeProperty("--specialization-bg");
-    };
-  }, [activeSlide.bg]);
+    // keep for future styling; no-op for now
+  }, []);
 
   return (
     <section id="specializations" className="relative overflow-hidden py-24 md:py-32">
       <AnimatePresence mode="wait">
         <motion.div
-          key={activeSlide.key}
           aria-hidden="true"
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          style={{ backgroundColor: activeSlide.bg }}
+          style={{ backgroundColor: slides[activeIndex]?.bg ?? "#ffffff" }}
+
         />
       </AnimatePresence>
 
@@ -94,97 +89,97 @@ export default function Specializations() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto max-w-3xl"
         >
           <p className="uppercase tracking-[0.34em] text-xs font-semibold text-brand.deep/80">Specializations</p>
-          <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-brand.ink">
-            Storytelling slides built around one central Ayurvedic image.
-          </h2>
+          <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-brand.ink">Editorial wellness pathways</h2>
+
           <p className="mt-4 text-lg leading-relaxed text-brand.ink/70">
-            Each slide stays spacious, emotional, and editorial, with the visual taking center stage and the
-            copy quietly supporting it.
+            Swipe through care pathways—each slide keeps generous negative space and premium pacing.
           </p>
+
         </motion.div>
 
-        <div className="mt-16">
+        <div className="mt-10">
           <Swiper
-            modules={[Autoplay, EffectFade]}
-            effect="fade"
-            fadeEffect={{ crossFade: true }}
+            modules={[Autoplay]}
             loop
-            autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: false }}
-            speed={1000}
-            slidesPerView={1}
+            autoplay={{ delay: 4200, disableOnInteraction: false, pauseOnMouseEnter: false }}
+            speed={900}
+            slidesPerView={2.2}
+            spaceBetween={26}
+            centeredSlides={false}
             allowTouchMove
-            className="h-full w-full"
+            freeMode={{ enabled: true, momentum: true, momentumRatio: 0.9 }}
+            grabCursor
+            className="w-full pr-2"
+            breakpoints={{
+              0: {
+                slidesPerView: 1.2,
+                spaceBetween: 18,
+              },
+              640: {
+                slidesPerView: 1.55,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 2.2,
+                spaceBetween: 26,
+              },
+            }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           >
-            {slides.map((slide) => (
+            {slides.map((slide, idx) => (
               <SwiperSlide key={slide.key} className="!h-auto">
-                <section className="relative flex min-h-[70vh] items-center overflow-hidden py-14 md:py-20">
-                  <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center">
-                    <div className="relative w-full">
-                      <div className="absolute inset-x-0 top-0 hidden h-full md:block pointer-events-none">
-                        {slide.pills.map((pill, index) => (
-                          <motion.span
-                            key={pill}
-                            className={`absolute ${pillPositions[index] ?? "left-1/2 top-[12%] -translate-x-1/2"} rounded-full border border-white/70 bg-white/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand.ink shadow-[0_16px_30px_rgba(27,31,59,0.08)] backdrop-blur-md`}
-                            animate={
-                              reducedMotion
-                                ? undefined
-                                : {
-                                    y: [0, -7, 0],
-                                    rotate: index === 1 ? [0, 2, 0] : [0, -2, 0],
-                                  }
-                            }
-                            transition={{
-                              duration: 6.5 + index,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                            }}
-                          >
-                            {pill}
-                          </motion.span>
-                        ))}
+                <article
+                  className="group relative overflow-hidden rounded-[28px] border border-black/5 bg-white/40 backdrop-blur-md"
+                  style={{ backgroundColor: "rgba(255,255,255,0.55)" }}
+                >
+                  <div className="relative p-6 md:p-7">
+                    <div className="absolute inset-0 -z-10 opacity-60" style={{ background: slide.bg }} />
+
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0">
+                        <h3 className="text-[18px] md:text-[22px] font-semibold tracking-[-0.02em] text-brand.ink">
+                          {slide.title}
+                        </h3>
+                        <p className="mt-2 text-sm md:text-[15px] leading-relaxed text-brand.ink/70">
+                          {slide.description}
+                        </p>
                       </div>
 
-                      <div className="md:hidden flex flex-wrap justify-center gap-3">
-                        {slide.pills.map((pill) => (
-                          <span
-                            key={pill}
-                            className="rounded-full border border-black/5 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand.ink"
-                          >
-                            {pill}
-                          </span>
-                        ))}
+                      <div className="flex shrink-0 items-center gap-2">
+                        <span className="text-[11px] uppercase tracking-[0.34em] font-semibold text-brand.deep/70">
+                          AyurAura
+                        </span>
                       </div>
 
-                      <div className="mt-10 md:mt-2">
+                    </div>
+
+                    <div className="mt-5 flex items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand.primary/60" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand.gold/60" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand.lavender/70" />
+                      </div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-brand.deep/60">Explore</div>
+                      <div className="text-brand.primary font-semibold">→</div>
+                    </div>
+
+                    <div className="mt-5">
+                      <div className="w-[92px] md:w-[110px]">
                         <StoryVisual
                           image={slide.image}
                           alt={slide.title}
                           reducedMotion={reducedMotion}
-                          className="max-w-[280px] sm:max-w-[320px] md:max-w-[380px]"
+                          className="max-w-[110px] sm:max-w-[120px] md:max-w-[140px]"
                         />
                       </div>
                     </div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-120px" }}
-                      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                      className="mt-14 max-w-3xl"
-                    >
-                      <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.05em] text-brand.ink">
-                        {slide.title}
-                      </h3>
-                      <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand.ink/72 md:text-lg">
-                        {slide.description}
-                      </p>
-                    </motion.div>
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
-                </section>
+                </article>
               </SwiperSlide>
             ))}
           </Swiper>

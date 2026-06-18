@@ -3,16 +3,18 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
-import About from "@/components/About";
 import Specializations from "@/components/Specializations";
-import WhyChoose from "@/components/WhyChoose";
-import Journey from "@/components/Journey";
-import Doctors from "@/components/Doctors";
-import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
+import OurServices from "@/components/OurServices";
+import HowAyurAuraWorks from "@/components/HowAyurAuraWorks";
+import Experts from "@/components/Experts";
+import VideoSection from "@/components/VideoSection";
+import PatientStories from "@/components/PatientStories";
+import TheyStartedHealing from "@/components/TheyStartedHealing";
+import UnderstandAyurvedaCTA from "@/components/UnderstandAyurvedaCTA";
 import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
+
 
 export default function Site() {
   return (
@@ -22,17 +24,19 @@ export default function Site() {
       <div className="relative z-10">
         <TrustBar />
       </div>
-      <About />
       <Specializations />
-      <WhyChoose />
-      <Journey />
-      <Doctors />
-      <Testimonials />
-      <Blog />
+      <OurServices />
+      <HowAyurAuraWorks />
+      <Experts />
+      <VideoSection />
+      <PatientStories />
+      <TheyStartedHealing />
       <FAQ />
-      <Contact />
+      <UnderstandAyurvedaCTA />
       <Footer />
+
     </main>
+
   );
 }
 

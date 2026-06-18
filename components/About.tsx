@@ -94,7 +94,9 @@ export default function About() {
             style={{ y: reducedMotion ? 0 : visualY }}
             className="relative"
           >
-            <AyurvedicStoryVisual reducedMotion={reducedMotion} className="max-w-[420px]" />
+            <div className="max-w-[420px]">
+              <AyurvedicStoryVisual reducedMotion={reducedMotion} />
+            </div>
           </motion.div>
         </div>
       </div>

@@ -8,44 +8,74 @@ type Props = {
 };
 
 export default function AyurvedicStoryVisual({ reducedMotion }: Props) {
+  const labels = [
+    { text: "HEALING", pos: "top-[6%] left-1/2 -translate-x-1/2" },
+    { text: "BALANCE", pos: "left-[10%] top-[24%]" },
+    { text: "IMMUNITY", pos: "right-[10%] top-[24%]" },
+    { text: "VITALITY", pos: "left-[8%] bottom-[10%]" },
+    { text: "LONGEVITY", pos: "right-[8%] bottom-[10%]" },
+  ] as const;
+
+
   return (
-    <motion.div
-      className="relative overflow-hidden rounded-[36px] border border-black/5 bg-[linear-gradient(180deg,#fcf8ef_0%,#f5edd8_100%)] shadow-[0_28px_90px_rgba(57,35,10,0.14)]"
-      initial={{ opacity: 0, y: 22, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-120px" }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div
-        className="relative min-h-[540px]"
-        animate={reducedMotion ? undefined : { y: [0, -8, 0] }}
-        transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Image
-          src="/images/specializations/healing-tree.png"
-          alt="Golden Ayurvedic tree illustration"
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 48vw"
-          className="object-cover object-center"
-        />
-
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(252,248,239,0.24)_0%,rgba(252,248,239,0.06)_45%,rgba(245,237,216,0.18)_100%)]" />
-
+    <section className="relative py-10">
+      <div className="mx-auto max-w-[500px] px-6">
         <motion.div
-          className="absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(180deg,rgba(255,248,230,0)_0%,rgba(242,221,167,0.16)_100%)]"
-          animate={reducedMotion ? undefined : { opacity: [0.72, 1, 0.72] }}
-          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
+          className="relative mx-auto overflow-visible"
+          initial={{ opacity: 0, y: 16, scale: 0.985 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-140px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Wing frame */}
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-[500px]">
+            <motion.div
+              className="absolute inset-0 -z-10 rounded-[42px] bg-[radial-gradient(circle_at_top,rgba(212,160,23,0.18)_0%,transparent_55%),radial-gradient(circle_at_bottom,rgba(123,44,191,0.14)_0%,transparent_60%)]"
+              animate={reducedMotion ? undefined : { opacity: [0.7, 1, 0.75] }}
+              transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+            />
 
-      <div className="absolute inset-x-8 bottom-8 rounded-[28px] border border-white/65 bg-white/58 px-5 py-4 backdrop-blur-md">
-        <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Ayurvedic Story</div>
-        <div className="mt-2 text-lg font-semibold text-brand.ink">Golden healing, rooted and alive.</div>
-        <div className="mt-1 text-sm leading-relaxed text-brand.ink/65">
-          A real AyurAura asset now anchors the section with a premium editorial feel.
-        </div>
+            {/* Center visual: compact glow only (no giant artwork) */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 w-[62%] -translate-x-1/2 -translate-y-1/2"
+              animate={reducedMotion ? undefined : { y: [0, -4, 0], opacity: [0.85, 1, 0.85] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="relative mx-auto h-full w-full max-h-[240px]">
+                <div className="absolute inset-0 rounded-[42px] bg-[radial-gradient(circle_at_50%_40%,rgba(212,160,23,0.28)_0%,transparent_55%),radial-gradient(circle_at_55%_65%,rgba(123,44,191,0.22)_0%,transparent_60%)] blur-[0px]" />
+                <div className="absolute inset-0 rounded-[42px] bg-[radial-gradient(circle_at_30%_30%,rgba(201,106,168,0.18)_0%,transparent_60%)]" />
+                <div className="absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_70%)]" />
+              </div>
+            </motion.div>
+
+            {/* Center text (compact) */}
+            <div className="absolute left-1/2 top-1/2 w-full max-w-[340px] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none">
+              <div className="text-[12px] uppercase tracking-[0.34em] font-semibold text-brand.deep/70">AYURVEDIC WING</div>
+              <div className="mt-3 text-[18px] font-semibold tracking-[-0.02em] text-brand.ink">
+                Ancient Wisdom.
+                <br />
+                Modern Healing.
+              </div>
+            </div>
+
+
+            {/* Floating labels */}
+            {labels.map((l, i) => (
+              <motion.div
+                key={l.text}
+                className={`absolute ${l.pos} pointer-events-none`}
+                animate={reducedMotion ? undefined : { y: [0, -6, 0], opacity: [0.65, 1, 0.7] }}
+                transition={{ duration: 8 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="rounded-full border border-black/5 bg-white/40 px-4 py-2 backdrop-blur-md">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.34em] text-brand.deep/70">{l.text}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 }
+
