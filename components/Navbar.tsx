@@ -153,11 +153,11 @@ export default function Navbar() {
           </a>
 
         </div>
-      </div>
+        </div>
 
       <div className="h-px w-full bg-black/5">
         <motion.div
-          className="h-px w-24"
+          className="h-px w-24 max-w-full"
           style={{ backgroundColor: "var(--hero-accent, #7B2CBF)" }}
           animate={{ x: ["0%", "0%"] }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
