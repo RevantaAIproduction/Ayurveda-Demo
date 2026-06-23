@@ -13,8 +13,7 @@ import TheyStartedHealing from "@/components/TheyStartedHealing";
 import UnderstandAyurvedaCTA from "@/components/UnderstandAyurvedaCTA";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-
-
+import Contact from "@/components/Contact";
 
 export default function Site() {
   return (
@@ -33,10 +32,10 @@ export default function Site() {
       <TheyStartedHealing />
       <FAQ />
       <UnderstandAyurvedaCTA />
+      <Contact />
       <Footer />
-
     </main>
-
   );
 }
+
 

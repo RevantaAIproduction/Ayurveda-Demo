@@ -6,7 +6,7 @@ export default function Footer() {
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer className="py-16" aria-label="AyurAura Footer">
+<footer className="py-16" aria-label="Supraja Clinic Footer">
       <div className="max-w-7xl mx-auto px-6">
         <div className="rounded-[28px] glass border border-black/5 p-6 md:p-10 shadow-[0_20px_70px_rgba(27,31,59,0.08)]">
           <div className="grid md:grid-cols-12 gap-8">
@@ -16,8 +16,8 @@ export default function Footer() {
                   <div className="h-2.5 w-2.5 rounded-full bg-[#7B2CBF]" />
                 </div>
                 <div>
-                  <div className="text-2xl font-semibold text-brand.ink">AyurAura</div>
-                  <div className="text-sm text-brand.ink/65">Ancient Wisdom. Modern healing.</div>
+                  <div className="text-2xl font-semibold text-brand.ink">Supraja Clinic</div>
+                  <div className="text-sm text-brand.ink/65">Deep Rooted Ayurvedic Care for Women</div>
                 </div>
               </div>
 
@@ -29,12 +29,7 @@ export default function Footer() {
             <div className="md:col-span-3">
               <div className="text-sm uppercase tracking-[0.28em] font-semibold text-brand.deep/70">Treatments</div>
               <div className="mt-4 grid grid-cols-1 gap-2">
-                {[
-                  "Stri Roga",
-                  "Garbhini Paricharya",
-                  "Kaumarabhritya",
-                  "Panchakarma",
-                ].map((t) => (
+                {["Stri Roga", "Garbhini Paricharya", "Kaumarabhritya", "Panchakarma"].map((t) => (
                   <a
                     key={t}
                     href="#specializations"
@@ -55,7 +50,7 @@ export default function Footer() {
                       { label: "Home", href: "#home" },
                       { label: "Specializations", href: "#specializations" },
                       { label: "FAQ", href: "#faq" },
-                      { label: "About AyurAura", href: "#about" },
+                      { label: "About Supraja Clinic", href: "/about" },
                     ].map((l) => (
                       <a
                         key={l.href + l.label}
@@ -94,7 +89,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-10 pt-6 border-t border-black/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="text-sm text-brand.ink/60">© {year} AyurAura. All rights reserved.</div>
+            <div className="text-sm text-brand.ink/60">© {year} Supraja Clinic. All rights reserved.</div>
             <div className="text-sm text-brand.ink/60">Privacy • Terms • Accessibility</div>
           </div>
         </div>

@@ -28,14 +28,12 @@ export default function About() {
             style={{ y: reducedMotion ? 0 : copyY }}
             className="max-w-2xl"
           >
-            <p className="uppercase tracking-[0.34em] text-xs font-semibold text-brand.deep/80">About Ayurveda</p>
+            <p className="uppercase tracking-[0.34em] text-xs font-semibold text-brand.deep/80">About Supraja Clinic</p>
             <h2 className="mt-6 text-4xl md:text-5xl font-semibold text-brand.ink leading-[1.08]">
-              A calm, editorial introduction to whole-body healing.
+              Doctor-led women’s wellness through root-cause Ayurveda.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-brand.ink/70">
-              Ayurveda is not rushed. It unfolds through rhythm, assessment, and therapies that respect
-              your constitution. This section sets the tone for a premium wellness journey that feels
-              warm, precise, and deeply personal.
+              A premium consultation experience designed for hormonal wellness, menstrual health, and pre-conception guidance.
             </p>
 
             <motion.div

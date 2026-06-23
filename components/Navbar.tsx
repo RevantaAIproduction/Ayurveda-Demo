@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About Ayurveda", href: "#about" },
-  { label: "Specializations", href: "#specializations" },
-  { label: "Treatment Journey", href: "#journey" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "#our-services" },
   { label: "FAQ", href: "#faq" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -53,24 +50,26 @@ export default function Navbar() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="flex items-center gap-3"
-          aria-label="AyurAura Home"
+          aria-label="Supraja Clinic Home"
         >
           <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[#7B2CBF]/20 to-[#5A189A]/20 border border-black/5 grid place-items-center shadow-[0_10px_30px_rgba(123,44,191,0.18)]">
             <div className="h-2.5 w-2.5 rounded-full bg-[#7B2CBF] shadow-[0_0_30px_rgba(123,44,191,0.45)]" />
           </div>
           <div>
-            <div className="text-2xl font-semibold tracking-tight text-brand.deep">AyurAura</div>
-            <div className="text-xs text-brand.deep/70 -mt-0.5">Ancient Wisdom. Modern Wellness.</div>
+            <div className="text-2xl font-semibold tracking-tight text-brand.deep">
+              Supraja Clinic
+            </div>
+            <div className="text-xs text-brand.deep/70 -mt-0.5">Deep Rooted Ayurvedic Care for Women</div>
           </div>
         </motion.a>
 
-        <nav className="hidden xl:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden xl:flex items-center gap-9" aria-label="Primary">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               className={
-                "text-sm transition-colors flex items-center gap-2 " +
+                "transition-colors flex items-center gap-2 " +
                 (item.href === "#home"
                   ? "text-brand.ink font-semibold"
                   : "text-brand.ink/70 hover:text-brand.ink")
@@ -83,7 +82,7 @@ export default function Navbar() {
                   aria-hidden="true"
                 />
               ) : null}
-              <span>{item.label}</span>
+              <span className="text-[18px] md:text-[20px] leading-none">{item.label}</span>
             </a>
           ))}
         </nav>
@@ -141,16 +140,21 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="hidden md:inline-flex h-10 px-5 items-center rounded-full text-sm font-semibold transition-all text-white"
+            className="hidden md:inline-flex items-center justify-center h-12 px-6 rounded-full bg-[#7C3AED] text-white font-semibold hover:bg-[#6D28D9] transition-colors"
             style={{
+              color: "#FFFFFF",
+              opacity: 1,
               backgroundColor: "var(--hero-accent, #7B2CBF)",
-              boxShadow: "0 0 0 1px var(--hero-accent-soft, rgba(123,44,191,0.18)), 0 0 40px var(--hero-accent-soft, rgba(123,44,191,0.18))",
+              boxShadow:
+                "0 0 0 1px var(--hero-accent-soft, rgba(123,44,191,0.18)), 0 0 40px var(--hero-accent-soft, rgba(123,44,191,0.18))",
             }}
           >
             Book Consultation
           </a>
+
         </div>
       </div>
+
       <div className="h-px w-full bg-black/5">
         <motion.div
           className="h-px w-24"

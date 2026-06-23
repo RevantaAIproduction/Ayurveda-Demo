@@ -128,10 +128,10 @@ function noteInnerClasses(style: NoteStyle) {
 }
 
 function makeNotes(count: number) {
-  const now = Date.now();
-  // Stable per session (not per render) while still not looking too uniform.
-  const seed = hashString("AyurAura-voices") ^ (now % 100000);
+  // Deterministic seed to avoid server/client hydration mismatch.
+  const seed = hashString("SuprajaClinic-patient-stories");
   const rnd = mulberry32(seed);
+
 
   const styles: NoteStyle[] = ["paper", "lavender", "sage", "glass", "cream"];
 

@@ -13,10 +13,11 @@ import "swiper/css/effect-fade";
 const slides = [
   {
     key: "women",
-    title: "Women's Wellness Through Ayurveda",
-    description: "Personalized Ayurvedic healthcare designed for modern lifestyles.",
+    title: "Deep Rooted Ayurvedic Care for Women",
+    description:
+      "Personalized Ayurvedic care focused on women's wellness, hormonal balance, pre-conception support, and long-term wellbeing.",
     video: "/videos/hero/women-wellness.mp4",
-    eyebrow: "Ancient Wisdom. Modern Wellness.",
+    eyebrow: "Supraja Clinic • Doctor-led Women’s Ayurveda",
   },
   {
     key: "panchakarma",
@@ -159,19 +160,21 @@ export default function Hero() {
                           {slide.eyebrow}
                         </p>
 
-                        <h1 className="mt-6 max-w-[12ch] text-5xl leading-[0.95] tracking-[-0.05em] text-brand.ink md:text-6xl xl:text-[4.7rem]">
-                          {slide.title}
+                        <h1 className="mt-6 max-w-[14ch] text-5xl leading-[0.95] tracking-[-0.05em] text-brand.ink md:text-6xl xl:text-[4.7rem]">
+                          Deep Rooted Ayurvedic Care for Women
                         </h1>
 
-                        <p className="mt-7 max-w-[540px] text-lg leading-[1.6] text-brand.ink/78 md:text-xl">
-                          {slide.description}
+                        <p className="mt-7 max-w-[600px] text-lg leading-[1.6] text-brand.ink/78 md:text-xl">
+                          Personalized Ayurvedic care focused on women's wellness, hormonal balance, pre-conception support, and long-term wellbeing.
                         </p>
 
-                        <div className="mt-10">
+                        <div className="mt-10 flex flex-col sm:flex-row gap-4">
                           <a
                             href="#contact"
-                            className="inline-flex items-center gap-4 rounded-2xl px-8 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.01]"
+                            className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-[#7C3AED] text-white font-semibold hover:bg-[#6D28D9] transition-colors"
                             style={{
+                              color: "#FFFFFF",
+                              opacity: 1,
                               background: `linear-gradient(135deg, ${theme.accent}, #4f2a7c)`,
                               boxShadow: `0 22px 60px ${theme.accentSoft}`,
                             }}
@@ -179,6 +182,15 @@ export default function Hero() {
                             Book Consultation
                             <FaArrowRight className="text-base" />
                           </a>
+
+                          <a
+                            href="#contact"
+                            className="inline-flex items-center justify-center h-12 px-6 rounded-full bg-[#7C3AED] text-white font-semibold hover:bg-[#6D28D9] transition-colors"
+                            style={{ color: "#FFFFFF", opacity: 1 }}
+                          >
+                            Contact Us
+                          </a>
+
                         </div>
                       </div>
                     </div>
